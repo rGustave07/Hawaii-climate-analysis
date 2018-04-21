@@ -27,6 +27,18 @@ metadata.reflect()
 table = sqlalchemy.Table('measurements', metadata, autoload = True)
 conn = engine.connect()
 
+dfstation = pd.read_csv(hawaii_station_path)
+dfstation
+
+
+datastations = dfstation.to_dict(orient = "records")
+datastations
+
+stationtable = sqlalchemy.Table('stations', metadata, autoload = True)
+conn.execute(stationtable.insert(), datastations)
+
+
+conn.execute("SELECT * FROM stations").fetchall()
 
 conn.execute(table.insert(), data)
 conn.execute("SELECT * FROM measurements").fetchall()

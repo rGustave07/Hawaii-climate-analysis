@@ -12,8 +12,8 @@ class Measurements(Base):
     __tablename__ = 'measurements'
     id = Column(Integer, primary_key = True)
     station = Column(String(255))
-    date = Column(Date)
-    precipitation = Column(Float)
+    date = Column(String(255))
+    prcp = Column(Float)
     tobs = Column(Integer)
 
 

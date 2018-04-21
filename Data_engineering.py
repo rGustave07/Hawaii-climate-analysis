@@ -20,7 +20,7 @@ measurementsdf
 stationsdf = pd.read_csv(hawaii_station_path)
 stationsdf
 
-clean_measurements = measurementsdf[measurementsdf['prcp'].isna()]
+clean_measurements = measurementsdf[measurementsdf['prcp'].notna()]
 clean_measurements
 
 type(clean_measurements['date'][0])
